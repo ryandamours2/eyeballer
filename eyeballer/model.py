@@ -204,10 +204,10 @@ class EyeballModel:
         result = dict()
         result["filename"] = "custom-image"
         result["custom404"] = prediction[0][0]
-        result["login"] = prediction[0][1]
-        result["webapp"] = prediction[0][2]
-        result["oldlooking"] = prediction[0][3]
-        result["parked"] = prediction[0][4]
+        result["login"] = float(prediction[0][1])
+        result["webapp"] = float(prediction[0][2])
+        result["oldlooking"] = float(prediction[0][3])
+        result["parked"] = float(prediction[0][4])
         return result
 
     def predict(self, path, threshold=0.5):
@@ -248,11 +248,11 @@ class EyeballModel:
             prediction = self.model.predict(img, batch_size=1)
             result = dict()
             result["filename"] = screenshot
-            result["custom404"] = prediction[0][0]
-            result["login"] = prediction[0][1]
-            result["webapp"] = prediction[0][2]
-            result["oldlooking"] = prediction[0][3]
-            result["parked"] = prediction[0][4]
+            result["custom404"] = float(prediction[0][0])
+            result["login"] = float(prediction[0][1])
+            result["webapp"] = float(prediction[0][2])
+            result["oldlooking"] = float(prediction[0][3])
+            result["parked"] = float(prediction[0][4])
             results.append(result)
         return results
 
