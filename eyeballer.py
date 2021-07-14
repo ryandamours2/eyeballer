@@ -43,6 +43,9 @@ def train(ctx, graphs, batchsize, epochs):
 def predict(ctx, screenshot, heatmap, threshold):
     model = EyeballModel(**ctx.obj['model_kwargs'])
     results = model.predict(screenshot)
+    with open("results.json", "w") as results_file:
+        json.dump(results, results_file)
+
 
     if heatmap:
         # Generate a heatmap
