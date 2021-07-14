@@ -2,6 +2,7 @@
 
 import click
 import csv
+import json
 
 from eyeballer.model import EyeballModel, DATA_LABELS
 from eyeballer.visualization import HeatMap
